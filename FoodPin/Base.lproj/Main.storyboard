@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="92" width="320" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NJF-Qd-BNp" id="xUe-bU-Xw0">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="90"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LJZ-yt-nKD">
@@ -140,6 +140,18 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2l-EL-6EK">
+                                                    <rect key="frame" x="275" y="-3" width="45" height="30"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" red="0.94064954188481675" green="0.038610789632457836" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" title="Map">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" red="0.36674420429999999" green="0.7217062179" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <segue destination="sqB-Aw-ayv" kind="push" identifier="showMap" id="stE-9s-tRl"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <animations/>
                                             <constraints>
@@ -168,7 +180,13 @@
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <animations/>
                                 <items>
-                                    <barButtonItem systemItem="action" id="gQK-dy-hA0"/>
+                                    <barButtonItem width="80" style="plain" systemItem="fixedSpace" id="fEl-ah-tR9"/>
+                                    <barButtonItem systemItem="action" id="gQK-dy-hA0">
+                                        <connections>
+                                            <segue destination="2xQ-b3-3Xs" kind="modal" identifier="showShareButton" id="nL5-Ce-QFu"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="81" style="plain" systemItem="fixedSpace" id="zml-v1-qXN"/>
                                     <barButtonItem systemItem="compose" id="qnZ-FK-Eu9">
                                         <connections>
                                             <segue destination="poc-of-bRj" kind="modal" identifier="showReview" id="v84-0n-OKz"/>
@@ -196,10 +214,10 @@
             </objects>
             <point key="canvasLocation" x="1236" y="236"/>
         </scene>
-        <!--View Controller-->
+        <!--Review View Controller-->
         <scene sceneID="gas-Hg-CMO">
             <objects>
-                <viewController id="poc-of-bRj" sceneMemberID="viewController">
+                <viewController id="poc-of-bRj" customClass="ReviewViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="m7p-aH-Ik2"/>
                         <viewControllerLayoutGuide type="bottom" id="Xcb-nf-VaW"/>
@@ -265,7 +283,7 @@ think?</string>
                                 <animations/>
                             </view>
                             <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVV-ua-9hg">
-                                <rect key="frame" x="265" y="20" width="34" height="34"/>
+                                <rect key="frame" x="273" y="20" width="26" height="26"/>
                                 <animations/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="close"/>
@@ -277,11 +295,115 @@ think?</string>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="q9p-Or-pw7" id="UKm-rd-WRg"/>
+                        <outlet property="dialogView" destination="3f1-wY-liA" id="ObK-7u-Q1j"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YB7-zp-KtK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Q75-ua-Inz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1654" y="236"/>
+        </scene>
+        <!--Share View Controller-->
+        <scene sceneID="hLr-ay-a3L">
+            <objects>
+                <viewController id="2xQ-b3-3Xs" customClass="ShareViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oke-g6-ISx"/>
+                        <viewControllerLayoutGuide type="bottom" id="WCx-fK-9te"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="79J-K6-pAj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="barrafina" translatesAutoresizingMaskIntoConstraints="NO" id="nlc-u2-T1a">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <animations/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pH9-Ow-Lfa">
+                                <rect key="frame" x="45" y="102" width="231" height="242"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOI-Oo-yRp">
+                                        <rect key="frame" x="57" y="57" width="64" height="64"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.0" green="0.28446831769110537" blue="0.5986174738219896" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" image="facebook"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPw-h5-yZQ">
+                                        <rect key="frame" x="120" y="120" width="64" height="64"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" image="email"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Uk-Gb-stO">
+                                        <rect key="frame" x="57" y="120" width="64" height="64"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.9981910638" green="1" blue="0.90101890299999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" image="message"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q97-8t-bE5">
+                                        <rect key="frame" x="120" y="57" width="64" height="64"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" image="twitter">
+                                            <color key="titleColor" red="0.36674420434630017" green="0.72170621787931943" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                            </view>
+                            <button opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQy-Ed-VLR">
+                                <rect key="frame" x="274" y="20" width="26" height="26"/>
+                                <animations/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="close"/>
+                                <connections>
+                                    <segue destination="Fq9-Au-Jhh" kind="unwind" unwindAction="close:" id="DL4-DR-p8W"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="nlc-u2-T1a" id="WIB-s1-ey7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="web-ff-lZU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Fq9-Au-Jhh" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2072" y="236"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Wvw-Pf-w8v">
+            <objects>
+                <viewController id="sqB-Aw-ayv" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jd3-cR-xk5"/>
+                        <viewControllerLayoutGuide type="bottom" id="dsl-gd-Jw3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YLU-HK-QUT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rtj-kk-FDx">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <animations/>
+                            </mapView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="BYA-R9-TAQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I2v-So-zRs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1236" y="922"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RDV-Fi-Sch">
@@ -305,9 +427,14 @@ think?</string>
     </scenes>
     <resources>
         <image name="bad" width="64" height="64"/>
+        <image name="barrafina" width="640" height="640"/>
         <image name="cafeloisl" width="640" height="640"/>
         <image name="close" width="64" height="64"/>
+        <image name="email" width="64" height="64"/>
+        <image name="facebook" width="64" height="64"/>
         <image name="good" width="64" height="64"/>
         <image name="great" width="64" height="64"/>
+        <image name="message" width="64" height="64"/>
+        <image name="twitter" width="64" height="64"/>
     </resources>
 </document>

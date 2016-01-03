@@ -16,6 +16,9 @@
 		40E1BA011C38BB2300C2FD75 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E1BA001C38BB2300C2FD75 /* DetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		40E1BA031C38D36000C2FD75 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E1BA021C38D36000C2FD75 /* Restaurant.swift */; settings = {ASSET_TAGS = (); }; };
 		40E1BA071C38E66600C2FD75 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E1BA061C38E66600C2FD75 /* DetailTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		40E1BA091C395A9300C2FD75 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E1BA081C395A9300C2FD75 /* ReviewViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		40E1BA0B1C39700F00C2FD75 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E1BA0A1C39700F00C2FD75 /* ShareViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		40E1BA0D1C39727900C2FD75 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40E1BA0C1C39727900C2FD75 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		40E1BA001C38BB2300C2FD75 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		40E1BA021C38D36000C2FD75 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Restaurant.swift; path = ../Restaurant.swift; sourceTree = "<group>"; };
 		40E1BA061C38E66600C2FD75 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		40E1BA081C395A9300C2FD75 /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		40E1BA0A1C39700F00C2FD75 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		40E1BA0C1C39727900C2FD75 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40E1BA0D1C39727900C2FD75 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +53,7 @@
 		40C765EF1C37BDC300FEBEEA = {
 			isa = PBXGroup;
 			children = (
+				40E1BA0C1C39727900C2FD75 /* MapKit.framework */,
 				40C765FA1C37BDC300FEBEEA /* FoodPin */,
 				40C765F91C37BDC300FEBEEA /* Products */,
 			);
@@ -72,6 +80,8 @@
 				40C7660F1C37C82400FEBEEA /* CustomTableViewCell.swift */,
 				40E1BA001C38BB2300C2FD75 /* DetailViewController.swift */,
 				40E1BA061C38E66600C2FD75 /* DetailTableViewCell.swift */,
+				40E1BA081C395A9300C2FD75 /* ReviewViewController.swift */,
+				40E1BA0A1C39700F00C2FD75 /* ShareViewController.swift */,
 			);
 			path = FoodPin;
 			sourceTree = "<group>";
@@ -108,6 +118,11 @@
 					40C765F71C37BDC300FEBEEA = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = 9PSJ842HYH;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -149,9 +164,11 @@
 			files = (
 				40E1BA071C38E66600C2FD75 /* DetailTableViewCell.swift in Sources */,
 				40E1BA031C38D36000C2FD75 /* Restaurant.swift in Sources */,
+				40E1BA091C395A9300C2FD75 /* ReviewViewController.swift in Sources */,
 				40C766101C37C82400FEBEEA /* CustomTableViewCell.swift in Sources */,
 				40C7660E1C37BF3500FEBEEA /* RestaurantTableViewController.swift in Sources */,
 				40C765FC1C37BDC300FEBEEA /* AppDelegate.swift in Sources */,
+				40E1BA0B1C39700F00C2FD75 /* ShareViewController.swift in Sources */,
 				40E1BA011C38BB2300C2FD75 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
