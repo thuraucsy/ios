@@ -7,21 +7,23 @@
 //
 
 import Foundation
+import CoreData
 
-class Restaurant {
-    var name:String = ""
-    var type:String = ""
-    var location:String = ""
-    var phone:String = ""
-    var image:String = ""
-    var isVisited:Bool = false
-    
-    init(name:String, type:String, location:String, phone:String, image:String, isVisited:Bool){
-        self.name = name
-        self.type = type
-        self.location = location
-        self.phone = phone
-        self.image = image
-        self.isVisited = isVisited
-    }
+class Restaurant:NSManagedObject {
+    @NSManaged var name:String!
+    @NSManaged var type:String!
+    @NSManaged var location:String!
+    @NSManaged var phone:String!
+    @NSManaged var image:NSData!
+    @NSManaged var isVisited:NSNumber!
+//    
+//    init(name:String, type:String, location:String, phone:String, image:String, isVisited:Bool){
+//        super.init()
+//        self.name = name
+//        self.type = type
+//        self.location = location
+//        self.phone = phone
+//        self.image = image
+//        self.isVisited = isVisited
+//    }
 }

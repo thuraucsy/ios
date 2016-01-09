@@ -7,38 +7,54 @@
 //
 
 import UIKit
+import CoreData
 
-class RestaurantTableViewController: UITableViewController {
-    
+class RestaurantTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UISearchResultsUpdating {
+    var fetchResultController:NSFetchedResultsController!
+    var searchController:UISearchController!
+    var searchResults:[Restaurant] = []
     var restaurants:[Restaurant] = [
-        Restaurant(name: "Cafe Deadend", type: "Coffee & Tea Shop", location: "G/F, 72 Po Hing Fong, Sheung Wan, Hong Kong", phone: "0123456" , image: "cafedeadend.jpg", isVisited: false),
-        Restaurant(name: "Homei", type: "Cafe", location: "Shop B, G/F, 22-24A Tai Ping San Street SOHO, Sheung Wan, Hong Kong", phone: "09876" , image: "homei.jpg", isVisited: false),
-        Restaurant(name: "Teakha", type: "Tea House", location: "Shop B, 18 Tai Ping Shan Road SOHO, Sheung Wan, Hong Kong", phone: "839283" , image: "teakha.jpg", isVisited: false),
-        Restaurant(name: "Cafe loisl", type: "Austrian / Causual Drink", location: "Shop B, 20 Tai Ping Shan Road SOHO, Sheung Wan, Hong Kong", phone: "0123456" , image: "cafeloisl.jpg", isVisited: false),
-        Restaurant(name: "Petite Oyster", type: "French", location: "24 Tai Ping Shan Road SOHO, Sheung Wan, Hong Kong", phone: "0123456" , image: "petiteoyster.jpg", isVisited: false),
-        Restaurant(name: "For Kee Restaurant", type: "Bakery", location: "Shop J-K., 200 Hollywood Road, SOHO, Sheung Wan, Hong Kong", phone: "0123456" , image: "forkeerestaurant.jpg", isVisited: false),
-        Restaurant(name: "Po's Atelier", type: "Bakery", location: "G/F, 62 Po Hing Fong, Sheung Wan, Hong Kong", phone: "0123456" , image: "posatelier.jpg", isVisited: false),
-        Restaurant(name: "Bourke Street Backery", type: "Chocolate", location: "633 Bourke St Sydney New South Wales 2010 Surry Hills", phone: "0123456" , image: "bourkestreetbakery.jpg", isVisited: false),
-        Restaurant(name: "Haigh's Chocolate", type: "Cafe", location: "412-414 George St Sydney New South Wales", phone: "0123456" , image: "haighschocolate.jpg", isVisited: false),
-        Restaurant(name: "Palomino Espresso", type: "American / Seafood", location: "Shop 1 61 York St Sydney New South Wales", phone: "0123456" , image: "palominoespresso.jpg", isVisited: false),
-        Restaurant(name: "Upstate", type: "American", location: "95 1st Ave New York, NY 10003", phone: "0123456" , image: "upstate.jpg", isVisited: false),
-        Restaurant(name: "Traif", type: "American", location: "229 S 4th St Brooklyn, NY 11211", phone: "0123456" , image: "traif.jpg", isVisited: false),
-        Restaurant(name: "Graham Avenue Meats", type: "Breakfast & Brunch", location: "445 Graham Ave Brooklyn, NY 11211", phone: "0123456" , image: "grahamavenuemeats.jpg", isVisited: false),
-        Restaurant(name: "Waffle & Wolf", type: "Coffee & Tea", location: "413 Graham Ave Brooklyn, NY 11211", phone: "0123456" , image: "wafflewolf.jpg", isVisited: false),
-        Restaurant(name: "Five Leaves", type: "Coffee & Tea", location: "18 Bedford Ave Brooklyn, NY 11222", phone: "0123456" , image: "fiveleaves.jpg", isVisited: false),
-        Restaurant(name: "Cafe Lore", type: "Latin American", location: "Sunset Park 4601 4th Ave Brooklyn, NY 11220", phone: "0123456" , image: "cafelore.jpg", isVisited: false),
-        Restaurant(name: "Confessional", type: "Spanish", location: "308 E 6th St New York, NY 10003", phone: "0123456" , image: "confessional.jpg", isVisited: false),
-        Restaurant(name: "Barrafina", type: "Spanish", location: "54 Frith Street London W1D 4SL United Kingdom", phone: "0123456" , image: "barrafina.jpg", isVisited: false),
-        Restaurant(name: "Donostia", type: "Spanish", location: "10 Seymour Place London W1H 7ND United Kingdom", phone: "0123456" , image: "donostia.jpg", isVisited: false),
-        Restaurant(name: "Royal Oak", type: "British", location: "2 Regency Street London SW1P 4BZ United Kingdom", phone: "0123456" , image: "royaloak.jpg", isVisited: false),
-        Restaurant(name: "Thai Cafe", type: "Thai", location: "22 Charlwood Street London SW1V 2DY Pimlico", phone: "0123456" , image: "thaicafe.jpg", isVisited: false)
+//        Restaurant(name: "Cafe Deadend", type: "Coffee & Tea Shop", location: "G/F, 72 Po Hing Fong, Sheung Wan, Hong Kong", phone: "0123456" , image: "cafedeadend.jpg", isVisited: false),
+//        Restaurant(name: "Homei", type: "Cafe", location: "Shop B, G/F, 22-24A Tai Ping San Street SOHO, Sheung Wan, Hong Kong", phone: "09876" , image: "homei.jpg", isVisited: false),
+//        Restaurant(name: "Teakha", type: "Tea House", location: "Shop B, 18 Tai Ping Shan Road SOHO, Sheung Wan, Hong Kong", phone: "839283" , image: "teakha.jpg", isVisited: false),
+//        Restaurant(name: "Cafe loisl", type: "Austrian / Causual Drink", location: "Shop B, 20 Tai Ping Shan Road SOHO, Sheung Wan, Hong Kong", phone: "0123456" , image: "cafeloisl.jpg", isVisited: false),
+//        Restaurant(name: "Petite Oyster", type: "French", location: "24 Tai Ping Shan Road SOHO, Sheung Wan, Hong Kong", phone: "0123456" , image: "petiteoyster.jpg", isVisited: false),
+//        Restaurant(name: "For Kee Restaurant", type: "Bakery", location: "Shop J-K., 200 Hollywood Road, SOHO, Sheung Wan, Hong Kong", phone: "0123456" , image: "forkeerestaurant.jpg", isVisited: false),
+//        Restaurant(name: "Po's Atelier", type: "Bakery", location: "G/F, 62 Po Hing Fong, Sheung Wan, Hong Kong", phone: "0123456" , image: "posatelier.jpg", isVisited: false),
+//        Restaurant(name: "Bourke Street Backery", type: "Chocolate", location: "633 Bourke St Sydney New South Wales 2010 Surry Hills", phone: "0123456" , image: "bourkestreetbakery.jpg", isVisited: false),
+//        Restaurant(name: "Haigh's Chocolate", type: "Cafe", location: "412-414 George St Sydney New South Wales", phone: "0123456" , image: "haighschocolate.jpg", isVisited: false),
+//        Restaurant(name: "Palomino Espresso", type: "American / Seafood", location: "Shop 1 61 York St Sydney New South Wales", phone: "0123456" , image: "palominoespresso.jpg", isVisited: false),
+//        Restaurant(name: "Upstate", type: "American", location: "95 1st Ave New York, NY 10003", phone: "0123456" , image: "upstate.jpg", isVisited: false),
+//        Restaurant(name: "Traif", type: "American", location: "229 S 4th St Brooklyn, NY 11211", phone: "0123456" , image: "traif.jpg", isVisited: false),
+//        Restaurant(name: "Graham Avenue Meats", type: "Breakfast & Brunch", location: "445 Graham Ave Brooklyn, NY 11211", phone: "0123456" , image: "grahamavenuemeats.jpg", isVisited: false),
+//        Restaurant(name: "Waffle & Wolf", type: "Coffee & Tea", location: "413 Graham Ave Brooklyn, NY 11211", phone: "0123456" , image: "wafflewolf.jpg", isVisited: false),
+//        Restaurant(name: "Five Leaves", type: "Coffee & Tea", location: "18 Bedford Ave Brooklyn, NY 11222", phone: "0123456" , image: "fiveleaves.jpg", isVisited: false),
+//        Restaurant(name: "Cafe Lore", type: "Latin American", location: "Sunset Park 4601 4th Ave Brooklyn, NY 11220", phone: "0123456" , image: "cafelore.jpg", isVisited: false),
+//        Restaurant(name: "Confessional", type: "Spanish", location: "308 E 6th St New York, NY 10003", phone: "0123456" , image: "confessional.jpg", isVisited: false),
+//        Restaurant(name: "Barrafina", type: "Spanish", location: "54 Frith Street London W1D 4SL United Kingdom", phone: "0123456" , image: "barrafina.jpg", isVisited: false),
+//        Restaurant(name: "Donostia", type: "Spanish", location: "10 Seymour Place London W1H 7ND United Kingdom", phone: "0123456" , image: "donostia.jpg", isVisited: false),
+//        Restaurant(name: "Royal Oak", type: "British", location: "2 Regency Street London SW1P 4BZ United Kingdom", phone: "0123456" , image: "royaloak.jpg", isVisited: false),
+//        Restaurant(name: "Thai Cafe", type: "Thai", location: "22 Charlwood Street London SW1V 2DY Pimlico", phone: "0123456" , image: "thaicafe.jpg", isVisited: false)
     ]
     
     var restaurantIsVisited = [Bool](count: 21, repeatedValue: false)
-    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let hasViewedWalkthrough = defaults.boolForKey("hasViewedWalkthrough")
+        
+        if hasViewedWalkthrough == false {
+            if let pageViewController = storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as? PageViewController {
+                
+                self.presentViewController(pageViewController, animated: true, completion: nil)
+            }
+        }
+        
+        
         
         // Empty back btn title
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
@@ -55,8 +71,83 @@ class RestaurantTableViewController: UITableViewController {
         // iOS 8 most exciting feature self sizing
         tableView.estimatedRowHeight = 36.0
         tableView.rowHeight = UITableViewAutomaticDimension
+        
+        // fetch from db
+        let fetchRequest = NSFetchRequest(entityName: "Restaurant")
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        
+        fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        fetchResultController.delegate = self
+        
+        try! fetchResultController.performFetch()
+        restaurants = fetchResultController.fetchedObjects as! [Restaurant]
+        
+        // search view to navi bar
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.sizeToFit()
+        searchController.searchBar.tintColor = UIColor(red: 231.0/255.0, green: 95.0/255.0, blue:
+        53.0/255.0, alpha: 0.3)
+        searchController.searchBar.placeholder = "Search your restaurant"
+
+        tableView.tableHeaderView = searchController.searchBar
+        definesPresentationContext = true
+        
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        
+    
+        
 
     }
+    
+    func filterContentForSearchText(searchText: String) {
+        searchResults = restaurants.filter({
+            ( restaurant: Restaurant) -> Bool in
+            
+            let nameMatch = restaurant.name.rangeOfString(searchText, options:NSStringCompareOptions.CaseInsensitiveSearch)
+            
+            let locationMatch = restaurant.location.rangeOfString(searchText, options:NSStringCompareOptions.CaseInsensitiveSearch)
+            
+            return nameMatch != nil || locationMatch != nil
+        })
+    }
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        let searchText = searchController.searchBar.text
+        filterContentForSearchText(searchText!)
+        tableView.reloadData()
+    }
+    
+    
+    @objc func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        tableView.beginUpdates()
+    }
+    
+    @objc func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        
+        switch type {
+        case .Insert:
+            tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+        case .Delete:
+            tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+        case.Update:
+            tableView.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+            
+        default:
+            tableView.reloadData()
+        }
+        
+        restaurants = controller.fetchedObjects as! [Restaurant]
+    }
+    
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        tableView.endUpdates()
+    }
+    
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -76,7 +167,12 @@ class RestaurantTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.restaurants.count
+        if searchController.active {
+            return searchResults.count
+        } else {
+            return self.restaurants.count
+        }
+
     }
 
     
@@ -85,20 +181,16 @@ class RestaurantTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CustomTableViewCell
         
         // Configure the cell...
-        let restaurant = restaurants[indexPath.row]
+        let restaurant = (searchController.active) ? searchResults[indexPath.row] : restaurants[indexPath.row]
         cell.nameLabel.text = restaurant.name
-        cell.thumbnailImageView!.image = UIImage(named: restaurant.image)
+        cell.thumbnailImageView!.image = UIImage(data: restaurant.image)
         cell.typeLabel.text = restaurant.type
         cell.locationLabel.text = restaurant.location
         cell.thumbnailImageView.layer.cornerRadius = cell.thumbnailImageView.frame.size.width / 2
         cell.thumbnailImageView.clipsToBounds = true
-        
-        if restaurant.isVisited {
-            cell.accessoryType = .Checkmark
-        } else {
-            cell.accessoryType = .None
-        }
-        
+
+//        cell.favorIconImageView.hidden = !restaurant.isVisited.boolValue
+
         return cell
     }
     
@@ -135,13 +227,17 @@ class RestaurantTableViewController: UITableViewController {
 //        tableView.deselectRowAtIndexPath(indexPath, animated: false)
 //    }
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+        if searchController.active {
+            return false
+        } else {
+            return true
+        }
+
     }
-    */
+    
 
     // Override to support editing the table view.
 //    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -182,9 +278,19 @@ class RestaurantTableViewController: UITableViewController {
             } )
         let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default,
                     title: "Delete",handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+                    
+                    // Delete row from data source
+                        let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+                            let restaurantToDelete = self.fetchResultController.objectAtIndexPath(indexPath) as! Restaurant
+                            managedObjectContext.deleteObject(restaurantToDelete)
+                            try! managedObjectContext.save()
+                        
+                        
                     // Delete the row from the data source
-                    self.restaurants.removeAtIndex(indexPath.row)
-                    self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+//                    self.restaurants.removeAtIndex(indexPath.row)
+//                    self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                        
+                        
                     } )
         
         shareAction.backgroundColor = UIColor(red: 255.0/255.0, green: 166.0/255.0, blue: 51.0/255.0, alpha: 1.0)
@@ -197,9 +303,12 @@ class RestaurantTableViewController: UITableViewController {
                 let indexPath = self.tableView.indexPathForSelectedRow!
                 
                 let destinationController = segue.destinationViewController as! DetailViewController
-                destinationController.restaurant = self.restaurants[indexPath.row]
-                destinationController.restaurant = self.restaurants[indexPath.row]
+                destinationController.restaurant = (searchController.active) ? searchResults[indexPath.row] : self.restaurants[indexPath.row]
             }
+    }
+    
+    @IBAction func unwindToHomeScreen(segue:UIStoryboardSegue) {
+        
     }
 
 
