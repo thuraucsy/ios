@@ -75,7 +75,7 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
         
         if errorField != "" {
             
-            let alertController = UIAlertController(title: "Oops", message: "We can't proceed as you forget to fill in the restaurant " + errorField + ". All fields are mandatory.", preferredStyle: .Alert)
+            let alertController = UIAlertController(title: "Oops", message: "We can't proceed as you forget to fill in the restaurant " + errorField + ". All fields are mandatory. 😓", preferredStyle: .Alert)
             let doneAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
             alertController.addAction(doneAction)
             

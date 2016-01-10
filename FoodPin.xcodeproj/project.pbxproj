@@ -12,8 +12,16 @@
 		4007D4941C3FF62300ADC482 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C765FB1C37BDC300FEBEEA /* AppDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 		4007D4961C413A5300ADC482 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4007D4951C413A5300ADC482 /* PageContentViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4007D4981C413D3F00ADC482 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4007D4971C413D3F00ADC482 /* PageViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4007D49E1C41F13200ADC482 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4007D49D1C41F13200ADC482 /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
+		4007D4A01C41F87700ADC482 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4007D49F1C41F87700ADC482 /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
+		4007D4A21C41FADE00ADC482 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4007D4A11C41FADE00ADC482 /* AboutViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4007D4A41C41FB0C00ADC482 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4007D4A31C41FB0C00ADC482 /* WebViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4007D4A61C4201E400ADC482 /* home.html in Resources */ = {isa = PBXBuildFile; fileRef = 4007D4A51C4201E400ADC482 /* home.html */; settings = {ASSET_TAGS = (); }; };
+		404BF2C31C420909006504FA /* jquery.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 404BF2C21C420909006504FA /* jquery.min.js */; settings = {ASSET_TAGS = (); }; };
+		408C997C1C427F9E00E86713 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 408C997E1C427F9E00E86713 /* Localizable.strings */; };
+		408C99821C427F9F00E86713 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 408C99841C427F9F00E86713 /* InfoPlist.strings */; };
+		408C998C1C42832300E86713 /* aboutfoodpin.png in Resources */ = {isa = PBXBuildFile; fileRef = 408C998E1C42832300E86713 /* aboutfoodpin.png */; };
 		40C766011C37BDC300FEBEEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C765FF1C37BDC300FEBEEA /* Main.storyboard */; };
-		40C766031C37BDC300FEBEEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C766021C37BDC300FEBEEA /* Assets.xcassets */; };
 		40C766061C37BDC300FEBEEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C766041C37BDC300FEBEEA /* LaunchScreen.storyboard */; };
 		40C7660E1C37BF3500FEBEEA /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7660D1C37BF3500FEBEEA /* RestaurantTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		40C766101C37C82400FEBEEA /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7660F1C37C82400FEBEEA /* CustomTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
@@ -31,10 +39,26 @@
 		4007D4921C3A79A400ADC482 /* FoodPin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodPin.xcdatamodel; sourceTree = "<group>"; };
 		4007D4951C413A5300ADC482 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
 		4007D4971C413D3F00ADC482 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		4007D49D1C41F13200ADC482 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4007D49F1C41F87700ADC482 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4007D4A11C41FADE00ADC482 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		4007D4A31C41FB0C00ADC482 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		4007D4A51C4201E400ADC482 /* home.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = home.html; sourceTree = "<group>"; };
+		404BF2C21C420909006504FA /* jquery.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.min.js; sourceTree = "<group>"; };
+		408C997D1C427F9E00E86713 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		408C997F1C427F9E00E86713 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		408C99831C427F9F00E86713 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		408C99851C427F9F00E86713 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		408C99861C42806400E86713 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		408C99871C42806500E86713 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		408C99881C42806500E86713 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		408C99891C42806500E86713 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		408C998D1C42832300E86713 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = Base.lproj/aboutfoodpin.png; sourceTree = "<group>"; };
+		408C998F1C42833900E86713 /* de */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = de; path = de.lproj/aboutfoodpin.png; sourceTree = "<group>"; };
+		408C99901C42833B00E86713 /* ja */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ja; path = ja.lproj/aboutfoodpin.png; sourceTree = "<group>"; };
 		40C765F81C37BDC300FEBEEA /* FoodPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C765FB1C37BDC300FEBEEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40C766001C37BDC300FEBEEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		40C766021C37BDC300FEBEEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40C766051C37BDC300FEBEEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40C766071C37BDC300FEBEEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40C7660D1C37BF3500FEBEEA /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
@@ -80,10 +104,12 @@
 		40C765FA1C37BDC300FEBEEA /* FoodPin */ = {
 			isa = PBXGroup;
 			children = (
+				408C998E1C42832300E86713 /* aboutfoodpin.png */,
+				408C99841C427F9F00E86713 /* InfoPlist.strings */,
+				408C997E1C427F9E00E86713 /* Localizable.strings */,
 				40E1BA021C38D36000C2FD75 /* Restaurant.swift */,
 				40C765FB1C37BDC300FEBEEA /* AppDelegate.swift */,
 				40C765FF1C37BDC300FEBEEA /* Main.storyboard */,
-				40C766021C37BDC300FEBEEA /* Assets.xcassets */,
 				40C766041C37BDC300FEBEEA /* LaunchScreen.storyboard */,
 				40C766071C37BDC300FEBEEA /* Info.plist */,
 				40C7660D1C37BF3500FEBEEA /* RestaurantTableViewController.swift */,
@@ -97,6 +123,12 @@
 				4007D4911C3A79A400ADC482 /* FoodPin.xcdatamodeld */,
 				4007D4951C413A5300ADC482 /* PageContentViewController.swift */,
 				4007D4971C413D3F00ADC482 /* PageViewController.swift */,
+				4007D49D1C41F13200ADC482 /* Assets.xcassets */,
+				4007D49F1C41F87700ADC482 /* Images.xcassets */,
+				4007D4A11C41FADE00ADC482 /* AboutViewController.swift */,
+				4007D4A31C41FB0C00ADC482 /* WebViewController.swift */,
+				4007D4A51C4201E400ADC482 /* home.html */,
+				404BF2C21C420909006504FA /* jquery.min.js */,
 			);
 			path = FoodPin;
 			sourceTree = "<group>";
@@ -148,6 +180,8 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
+				ja,
 			);
 			mainGroup = 40C765EF1C37BDC300FEBEEA;
 			productRefGroup = 40C765F91C37BDC300FEBEEA /* Products */;
@@ -165,7 +199,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				40C766061C37BDC300FEBEEA /* LaunchScreen.storyboard in Resources */,
-				40C766031C37BDC300FEBEEA /* Assets.xcassets in Resources */,
+				408C99821C427F9F00E86713 /* InfoPlist.strings in Resources */,
+				4007D4A61C4201E400ADC482 /* home.html in Resources */,
+				4007D4A01C41F87700ADC482 /* Images.xcassets in Resources */,
+				408C998C1C42832300E86713 /* aboutfoodpin.png in Resources */,
+				408C997C1C427F9E00E86713 /* Localizable.strings in Resources */,
+				4007D49E1C41F13200ADC482 /* Assets.xcassets in Resources */,
+				404BF2C31C420909006504FA /* jquery.min.js in Resources */,
 				40C766011C37BDC300FEBEEA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,8 +227,10 @@
 				40C7660E1C37BF3500FEBEEA /* RestaurantTableViewController.swift in Sources */,
 				40E1BA0B1C39700F00C2FD75 /* ShareViewController.swift in Sources */,
 				4007D4961C413A5300ADC482 /* PageContentViewController.swift in Sources */,
+				4007D4A21C41FADE00ADC482 /* AboutViewController.swift in Sources */,
 				4007D4981C413D3F00ADC482 /* PageViewController.swift in Sources */,
 				40E1BA011C38BB2300C2FD75 /* DetailViewController.swift in Sources */,
+				4007D4A41C41FB0C00ADC482 /* WebViewController.swift in Sources */,
 				4007D4691C3A266000ADC482 /* AddTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,10 +238,40 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		408C997E1C427F9E00E86713 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				408C997D1C427F9E00E86713 /* de */,
+				408C99861C42806400E86713 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		408C99841C427F9F00E86713 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				408C99831C427F9F00E86713 /* de */,
+				408C99891C42806500E86713 /* ja */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		408C998E1C42832300E86713 /* aboutfoodpin.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				408C998D1C42832300E86713 /* Base */,
+				408C998F1C42833900E86713 /* de */,
+				408C99901C42833B00E86713 /* ja */,
+			);
+			name = aboutfoodpin.png;
+			sourceTree = "<group>";
+		};
 		40C765FF1C37BDC300FEBEEA /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				40C766001C37BDC300FEBEEA /* Base */,
+				408C997F1C427F9E00E86713 /* de */,
+				408C99871C42806500E86713 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -208,6 +280,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				40C766051C37BDC300FEBEEA /* Base */,
+				408C99851C427F9F00E86713 /* de */,
+				408C99881C42806500E86713 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

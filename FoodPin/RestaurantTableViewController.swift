@@ -259,16 +259,17 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
     
     // more on swipe
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+
         let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Share",handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
-            let shareMenu = UIAlertController(title: nil, message: "Share using",
+            let shareMenu = UIAlertController(title: nil, message: NSLocalizedString("Share using", comment: "For social sharing"),
                 preferredStyle: .ActionSheet)
-            let twitterAction = UIAlertAction(title: "Twitter", style:
+            let twitterAction = UIAlertAction(title: NSLocalizedString("Twitter", comment: "For sharing on Twitter"), style:
                     UIAlertActionStyle.Default, handler: nil)
-            let facebookAction = UIAlertAction(title: "Facebook", style:
+            let facebookAction = UIAlertAction(title: NSLocalizedString("Facebook", comment: "For sharing on facebook"), style:
                     UIAlertActionStyle.Default, handler: nil)
-            let emailAction = UIAlertAction(title: "Email", style: UIAlertActionStyle.Default,
+            let emailAction = UIAlertAction(title: NSLocalizedString("Email", comment: "For sharing on Email"), style: UIAlertActionStyle.Default,
                     handler: nil)
-            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel,
+            let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: UIAlertActionStyle.Cancel,
                     handler: nil)
             shareMenu.addAction(twitterAction)
             shareMenu.addAction(facebookAction)
